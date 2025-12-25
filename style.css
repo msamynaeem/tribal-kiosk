@@ -125,29 +125,25 @@ header {
 /* =========================
    MODE: NOTION
    ========================= */
-body.mode-notion {
-  overflow: hidden;
+
+/* ===== Notion-safe scrolling ===== */
+
+html, body {
+  height: auto;
+  overflow: visible;
 }
 
+/* Notion mode */
+body.mode-notion {
+  overflow: visible;
+}
+
+/* المحتوى هو اللي يعمل scroll */
 body.mode-notion .wrap {
   max-width: 100%;
-  height: 100vh;
+  max-height: 100vh;
   overflow-y: auto;
   padding: 16px 24px;
-}
-
-/* =========================
-   MODE: PRESENTATION
-   ========================= */
-body.mode-presentation {
-  overflow: hidden;
-}
-
-body.mode-presentation .wrap {
-  max-width: 100%;
-  height: 100vh;
-  padding: 32px;
-  overflow: hidden;
 }
 
 /* =========================
