@@ -1,5 +1,6 @@
 /* =========================
    Tribal Stores – Shared CSS
+   FINAL / NOTION SAFE
    ========================= */
 
 /* -------- Root Variables -------- */
@@ -23,13 +24,15 @@
   box-sizing: border-box;
 }
 
+/* -------- Base HTML / Body -------- */
 html, body {
-  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
 }
 
-/* -------- Base Body -------- */
+/* -------- Body -------- */
 body {
-  margin: 0;
   font-family: "Cairo", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   background: linear-gradient(180deg, var(--bg), #070a0f);
   color: var(--text);
@@ -43,9 +46,10 @@ body {
   padding: 16px 48px;
 }
 
-/* Full-width helper (Notion) */
-.full-width {
+/* Notion Full Width */
+body.mode-notion .wrap {
   max-width: 100%;
+  padding: 16px 24px;
 }
 
 /* -------- Header -------- */
@@ -122,33 +126,7 @@ header {
   border-color: transparent;
 }
 
-/* =========================
-   MODE: NOTION
-   ========================= */
-
-/* ===== Notion-safe scrolling ===== */
-
-html, body {
-  height: auto;
-  overflow: visible;
-}
-
-/* Notion mode */
-body.mode-notion {
-  overflow: visible;
-}
-
-/* المحتوى هو اللي يعمل scroll */
-body.mode-notion .wrap {
-  max-width: 100%;
-  max-height: 100vh;
-  overflow-y: auto;
-  padding: 16px 24px;
-}
-
-/* =========================
-   MODE: PRINT
-   ========================= */
+/* -------- Print -------- */
 @media print {
   body {
     background: #fff;
