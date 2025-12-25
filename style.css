@@ -1,38 +1,166 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tribal Stores – Presentation</title>
+/* =========================
+   Tribal Stores – Shared CSS
+   ========================= */
 
-  <!-- نفس الستايل الأساسي -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+/* -------- Root Variables -------- */
+:root {
+  --bg: #0b0f14;
+  --card: #111823;
+  --muted: #9fb0c3;
+  --text: #e9f0f7;
+  --accent: #4aa3ff;
+  --ok: #2bd576;
+  --warn: #ffc85a;
+  --bad: #ff5d73;
+  --border: rgba(255,255,255,.08);
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Cairo", sans-serif;
-      background: #0b0f14;
-      color: #e9f0f7;
-      overflow: hidden;
-    }
+/* -------- Global Reset -------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-    .wrap {
-      max-width: 100%;
-      height: 100vh;
-      padding: 24px;
-      overflow: hidden;
-    }
-  </style>
-</head>
+html, body {
+  height: 100%;
+}
 
-<body>
-  <div class="wrap">
-    <!-- انسخ هنا نفس محتوى checklist لكن مقسّم أو مختصر -->
-    <h1>Tribal Stores – Kiosk Presentation</h1>
-    <p>نسخة عرض بدون Scroll</p>
-  </div>
-</body>
-</html>
+/* -------- Base Body -------- */
+body {
+  margin: 0;
+  font-family: "Cairo", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg), #070a0f);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* -------- Layout Wrapper -------- */
+.wrap {
+  max-width: 980px;
+  margin: 32px auto;
+  padding: 16px 48px;
+}
+
+/* Full-width helper (Notion) */
+.full-width {
+  max-width: 100%;
+}
+
+/* -------- Header -------- */
+header {
+  background:
+    radial-gradient(1200px 600px at 100% 0%, rgba(74,163,255,.22), transparent 50%),
+    radial-gradient(1200px 600px at 0% 20%, rgba(43,213,118,.14), transparent 55%),
+    var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+/* -------- Cards -------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+/* -------- Grid -------- */
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* -------- Text Helpers -------- */
+.muted { color: var(--muted); }
+.accent { color: var(--accent); }
+.ok { color: var(--ok); }
+.warn { color: var(--warn); }
+.bad { color: var(--bad); }
+
+/* -------- Checklist -------- */
+.checklist {
+  display: grid;
+  gap: 10px;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,.02);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.check-item input {
+  accent-color: var(--accent);
+}
+
+/* -------- Buttons -------- */
+.btn {
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #041018;
+  border-color: transparent;
+}
+
+/* =========================
+   MODE: NOTION
+   ========================= */
+body.mode-notion {
+  overflow: hidden;
+}
+
+body.mode-notion .wrap {
+  max-width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 16px 24px;
+}
+
+/* =========================
+   MODE: PRESENTATION
+   ========================= */
+body.mode-presentation {
+  overflow: hidden;
+}
+
+body.mode-presentation .wrap {
+  max-width: 100%;
+  height: 100vh;
+  padding: 32px;
+  overflow: hidden;
+}
+
+/* =========================
+   MODE: PRINT
+   ========================= */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .card, header {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}
